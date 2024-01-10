@@ -7,7 +7,7 @@ import {
   SignIn,
   SignUp,
 } from "./pages/index";
-import { Header } from "./components/index";
+import { FooterCom, Header } from "./components/index.js";
 export default function App() {
   return (
     <BrowserRouter>
@@ -20,6 +20,7 @@ export default function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/projects" element={<Projects />} />
       </Routes>
+      <FooterCom />
     </BrowserRouter>
   );
 }
