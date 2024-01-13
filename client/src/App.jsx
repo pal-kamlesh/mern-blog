@@ -7,7 +7,8 @@ import {
   SignIn,
   SignUp,
 } from "./pages/index";
-import { FooterCom, Header } from "./components/index.js";
+import { FooterCom, Header, PrivateRoute } from "./components/index.js";
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -17,7 +18,9 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route element={<PrivateRoute />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Route>
         <Route path="/projects" element={<Projects />} />
       </Routes>
       <FooterCom />

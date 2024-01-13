@@ -4,7 +4,7 @@ const initialState = {
   theme: "light",
 };
 
-export const themeSlice = createSlice({
+const themeSlice = createSlice({
   name: "theme",
   initialState,
   reducers: {
@@ -14,7 +14,6 @@ export const themeSlice = createSlice({
   },
 });
 
-// Action creators are generated for each case reducer function
 export const { toggleTheme } = themeSlice.actions;
 
 export default themeSlice.reducer;
