@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import userRoutes from "./routes/user.route.js";
 import authRoute from "./routes/auth.route.js";
+import postRoute from "./routes/post.route.js";
 import cookeParser from "cookie-parser";
 dotenv.config();
 
@@ -18,6 +19,7 @@ app.use(express.json());
 app.use(cookeParser());
 app.use("/api/user", userRoutes);
 app.use("/api/auth", authRoute);
+app.use("/api/post", postRoute);
 
 app.use((err, req, res, next) => {
   console.log(err);
