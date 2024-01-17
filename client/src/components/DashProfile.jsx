@@ -21,9 +21,10 @@ import {
 } from "../redux/user/userSlice";
 import { useDispatch } from "react-redux";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
+import { Link } from "react-router-dom";
 
 export default function DashProfile() {
-  const { currentUser, error } = useSelector((state) => state.user);
+  const { currentUser, error, loading } = useSelector((state) => state.user);
   const [imageFile, setImageFile] = useState(null);
   const [imageFileUploading, setImageFileUploading] = useState(false);
   const [imageUrl, setImageUrl] = useState(null);
@@ -113,15 +114,15 @@ export default function DashProfile() {
       });
       const data = await res.json();
       if (!res.ok) {
-        dispatch(updateFailure(data.messsage));
-        setUpdateUserError(data.messsage);
+        dispatch(updateFailure(data.message));
+        setUpdateUserError(data.message);
       } else {
         dispatch(updateSuccess(data));
         setUpdateUserSuccess("User's profile updated successfully");
       }
     } catch (error) {
-      dispatch(updateFailure(error.messsage));
-      setUpdateUserError(error.messsage);
+      dispatch(updateFailure(error.message));
+      setUpdateUserError(error.message);
     }
   };
 
@@ -134,12 +135,12 @@ export default function DashProfile() {
       });
       const data = await res.json();
       if (!res.ok) {
-        dispatch(deleteUserFailure(data.messsage));
+        dispatch(deleteUserFailure(data.message));
       } else {
         dispatch(deleteUserSuccess(data));
       }
     } catch (error) {
-      dispatch(deleteUserFailure(error.messsage));
+      dispatch(deleteUserFailure(error.message));
     }
   };
 
@@ -150,12 +151,12 @@ export default function DashProfile() {
       });
       const data = await res.json();
       if (!res.ok) {
-        console.log(data.messsage);
+        console.log(data.message);
       } else {
         dispatch(signoutSuccess());
       }
     } catch (error) {
-      console.log(error.messsage);
+      console.log(error.message);
     }
   };
   return (
@@ -225,9 +226,25 @@ export default function DashProfile() {
           placeholder="password"
           onChange={handleChange}
         />
-        <Button type="submit" gradientDuoTone="purpleToBlue" outline>
-          Update
+        <Button
+          type="submit"
+          gradientDuoTone="purpleToBlue"
+          outline
+          disabled={loading || imageFileUploading}
+        >
+          {loading ? "loading..." : "Update"}
         </Button>
+        {currentUser?.isAdmin && (
+          <Link to={`/create-post`}>
+            <Button
+              type="button"
+              gradientDuoTone="purpleToPink"
+              className="w-full"
+            >
+              Create a post
+            </Button>
+          </Link>
+        )}
       </form>
       <div className=" text-red-500 flex justify-between mt-5">
         <span onClick={() => setShowModal(true)} className="cursor-pointer">
