@@ -5,5 +5,15 @@ import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 import Home from "./Home";
 import CreatePost from "./CreatePost";
+import UpdatePost from "./UpdatePost";
 
-export { About, Dashboard, Projects, SignIn, SignUp, Home, CreatePost };
+export {
+  About,
+  Dashboard,
+  Projects,
+  SignIn,
+  SignUp,
+  Home,
+  CreatePost,
+  UpdatePost,
+};
