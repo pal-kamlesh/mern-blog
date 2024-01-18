@@ -6,7 +6,7 @@ import SignUp from "./SignUp";
 import Home from "./Home";
 import CreatePost from "./CreatePost";
 import UpdatePost from "./UpdatePost";
-
+import PostPage from "./PostPage";
 export {
   About,
   Dashboard,
@@ -16,4 +16,5 @@ export {
   Home,
   CreatePost,
   UpdatePost,
+  PostPage,
 };
