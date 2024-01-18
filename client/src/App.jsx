@@ -15,11 +15,13 @@ import {
   Header,
   OnlyAdminPrivateRoute,
   PrivateRoute,
+  ScrollToTop,
 } from "./components/index.js";
 
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
