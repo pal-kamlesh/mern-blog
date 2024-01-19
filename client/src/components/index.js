@@ -11,6 +11,8 @@ import DashUsers from "./DashUsers";
 import CallToAction from "./CallToAction";
 import CommentSection from "./CommentSection";
 import ScrollToTop from "./ScrollToTop";
+import Comment from "./Comment";
+
 export {
   Header,
   FooterCom,
@@ -25,4 +27,5 @@ export {
   CallToAction,
   CommentSection,
   ScrollToTop,
+  Comment,
 };
