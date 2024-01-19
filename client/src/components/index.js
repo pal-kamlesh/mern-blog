@@ -13,6 +13,7 @@ import CommentSection from "./CommentSection";
 import ScrollToTop from "./ScrollToTop";
 import Comment from "./Comment";
 import PostCard from "./PostCard";
+import DashComments from "./DashComments";
 
 export {
   Header,
@@ -30,4 +31,5 @@ export {
   ScrollToTop,
   Comment,
   PostCard,
+  DashComments,
 };
