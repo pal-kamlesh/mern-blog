@@ -14,6 +14,7 @@ import ScrollToTop from "./ScrollToTop";
 import Comment from "./Comment";
 import PostCard from "./PostCard";
 import DashComments from "./DashComments";
+import DashboardComponent from "./DashboardComponent";
 
 export {
   Header,
@@ -32,4 +33,5 @@ export {
   Comment,
   PostCard,
   DashComments,
+  DashboardComponent,
 };
