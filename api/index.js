@@ -18,6 +18,13 @@ const app = express();
 
 app.use(express.json());
 app.use(cookeParser());
+app.route(
+  "/",
+  (req,
+  (res) => {
+    res.send("Backend is working!");
+  })
+);
 app.use("/api/user", userRoutes);
 app.use("/api/auth", authRoute);
 app.use("/api/post", postRoute);
