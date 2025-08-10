@@ -25,7 +25,7 @@ app.use(
       "http://localhost:5173", // Local development
       "https://mern-blog-r2j4.onrender.com", // Your frontend URL
     ],
-    credentials: true,
+    credentials: false,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization", "Cookie"],
   })
