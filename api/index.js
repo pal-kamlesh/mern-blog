@@ -8,6 +8,7 @@ import commentRoute from "./routes/comment.route.js";
 import cookeParser from "cookie-parser";
 import cors from "cors";
 dotenv.config();
+const path = require("path");
 
 mongoose
   .connect(`${process.env.MONGO_URL}mern-blog`)
@@ -19,17 +20,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cookeParser());
-app.use(
-  cors({
-    origin: [
-      "http://localhost:5173", // Local development
-      "https://mern-blog-r2j4.onrender.com", // Your frontend URL
-    ],
-    credentials: false,
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization", "Cookie"],
-  })
-);
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.send("Backend is working!!");
@@ -38,6 +29,20 @@ app.use("/api/user", userRoutes);
 app.use("/api/auth", authRoute);
 app.use("/api/post", postRoute);
 app.use("/api/comment", commentRoute);
+
+(function fn() {
+  if (process.env.NODE_ENV === "production") {
+    const __dirname = path.resolve();
+    app.use(express.static(path.join(__dirname, "/client/dist")));
+    app.get("*", (req, res) =>
+      res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"))
+    );
+  } else {
+    app.get("/", (req, res) => {
+      res.send("API is running....");
+    });
+  }
+})();
 
 app.use((err, req, res, next) => {
   console.log(err);
