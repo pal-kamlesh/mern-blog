@@ -6,6 +6,7 @@ import authRoute from "./routes/auth.route.js";
 import postRoute from "./routes/post.route.js";
 import commentRoute from "./routes/comment.route.js";
 import cookeParser from "cookie-parser";
+import cors from "cors";
 dotenv.config();
 
 mongoose
@@ -18,6 +19,12 @@ const app = express();
 
 app.use(express.json());
 app.use(cookeParser());
+app.use(
+  cors({
+    origin: "https://mern-blog-r2j4.onrender.com",
+    credentials: true,
+  })
+);
 
 app.get("/", (req, res) => {
   res.send("Backend is working!!");
