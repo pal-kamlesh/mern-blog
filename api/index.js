@@ -9,7 +9,7 @@ import cookeParser from "cookie-parser";
 dotenv.config();
 
 mongoose
-  .connect(`${process.env.MONGO}mern-blog`)
+  .connect(`${process.env.MONGO_URL}mern-blog`)
   .then(() => console.log("DB connected"))
   .catch((err) => {
     console.log(err);
@@ -33,6 +33,6 @@ app.use((err, req, res, next) => {
     message,
   });
 });
-app.listen(3000, () => {
-  console.log("Server is running on port 3000");
+app.listen(5000, () => {
+  console.log("Server is running on port 5000");
 });

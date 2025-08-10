@@ -47,7 +47,7 @@ export default function Header() {
     const searchQuery = urlParams.toString();
     navigate(`/search?${searchQuery}`);
   };
-
+  console.log(currentUser);
   return (
     <Navbar className="border-b-2">
       <Link
