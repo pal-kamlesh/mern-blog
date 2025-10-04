@@ -8,7 +8,7 @@ import commentRoute from "./routes/comment.route.js";
 import cookeParser from "cookie-parser";
 import cors from "cors";
 dotenv.config();
-const path = require("path");
+import path from "path";
 
 mongoose
   .connect(`${process.env.MONGO_URL}mern-blog`)
